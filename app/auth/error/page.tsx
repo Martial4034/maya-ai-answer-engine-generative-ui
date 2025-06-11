@@ -13,9 +13,9 @@ export default async function Page({ searchParams }: { searchParams: Promise<{ e
             </CardHeader>
             <CardContent>
               {params?.error ? (
-                <p className="text-sm text-muted-foreground">Code d'erreur : {params.error}</p>
+                <p className="text-sm text-muted-foreground">Code d&apos;erreur : {params.error}</p>
               ) : (
-                <p className="text-sm text-muted-foreground">Une erreur non spécifiée s'est produite.</p>
+                <p className="text-sm text-muted-foreground">Une erreur non spécifiée s&apos;est produite.</p>
               )}
             </CardContent>
           </Card>

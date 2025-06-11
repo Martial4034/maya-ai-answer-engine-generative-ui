@@ -57,7 +57,7 @@ export function ClearHistoryAction({ empty }: ClearHistoryActionProps) {
               className="gap-2 text-destructive focus:text-destructive"
               onSelect={event => event.preventDefault()} // Prevent closing dropdown
             >
-              <Trash2 size={14} /> Effacer l'historique
+              <Trash2 size={14} /> Effacer l&apos;historique
             </DropdownMenuItem>
           </AlertDialogTrigger>
 

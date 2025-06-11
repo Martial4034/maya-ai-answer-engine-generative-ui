@@ -28,7 +28,7 @@ export function ClearHistory({ empty }: ClearHistoryProps) {
     <AlertDialog open={open} onOpenChange={setOpen}>
       <AlertDialogTrigger asChild>
         <Button variant="outline" className="w-full" disabled={empty}>
-          Effacer l'historique
+          Effacer l&apos;historique
         </Button>
       </AlertDialogTrigger>
       <AlertDialogContent>

@@ -128,7 +128,7 @@ export function SignUpForm({
       </Card>
       <div className="text-center text-xs text-muted-foreground">
         <Link href="/" className="hover:underline">
-          &larr; Retour à l'accueil
+          &larr; Retour à l&apos;accueil
         </Link>
       </div>
     </div>
