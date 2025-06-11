@@ -45,7 +45,7 @@ export function ClearHistoryAction({ empty }: ClearHistoryActionProps) {
       <DropdownMenuTrigger asChild>
         <SidebarGroupAction disabled={empty} className="static size-7 p-1">
           <MoreHorizontal size={16} />
-          <span className="sr-only">Actions de l&apos;historique</span>
+          <span className="sr-only">Actions de l'historique</span>
         </SidebarGroupAction>
       </DropdownMenuTrigger>
 
@@ -57,7 +57,7 @@ export function ClearHistoryAction({ empty }: ClearHistoryActionProps) {
               className="gap-2 text-destructive focus:text-destructive"
               onSelect={event => event.preventDefault()} // Prevent closing dropdown
             >
-              <Trash2 size={14} /> Effacer l&apos;historique
+              <Trash2 size={14} /> Effacer l'historique
             </DropdownMenuItem>
           </AlertDialogTrigger>
 

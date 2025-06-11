@@ -95,7 +95,7 @@ export function ForgotPasswordForm({ className, ...props }: React.ComponentProps
       )}
       <div className="text-center text-xs text-muted-foreground">
         <Link href="/" className="hover:underline">
-          &larr; Retour à l&apos;accueil
+          &larr; Retour à l'accueil
         </Link>
       </div>
     </div>

@@ -117,7 +117,7 @@ export function ChatPanel({
         <div className="mb-10 flex flex-col items-center gap-4">
           <IconLogo className="size-24 text-muted-foreground" />
           <p className="text-center text-3xl font-semibold">
-            Comment puis-je vous aider aujourd&apos;hui ?
+            Comment puis-je vous aider aujourd'hui ?
           </p>
         </div>
       )}

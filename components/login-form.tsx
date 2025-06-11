@@ -145,14 +145,14 @@ export function LoginForm({
           <div className="mt-6 text-center text-sm">
             Pas encore de compte ?{' '}
             <Link href="/auth/sign-up" className="underline underline-offset-4">
-              S&apos;inscrire
+              S'inscrire
             </Link>
           </div>
         </CardContent>
       </Card>
       <div className="text-center text-xs text-muted-foreground">
         <Link href="/" className="hover:underline">
-          &larr; Retour à l&apos;accueil
+          &larr; Retour à l'accueil
         </Link>
       </div>
     </div>

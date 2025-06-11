@@ -1,5 +1,6 @@
 import { updateSession } from '@/lib/supabase/middleware'
 import { type NextRequest, NextResponse } from 'next/server'
+import { v4 as uuidv4 } from 'uuid'
 
 export async function middleware(request: NextRequest) {
   // Get the protocol from X-Forwarded-Proto header or request protocol
@@ -26,6 +27,18 @@ export async function middleware(request: NextRequest) {
     // If Supabase is not configured, just pass the request through
     response = NextResponse.next({
       request
+    })
+  }
+
+  // Gestion de la session pour les utilisateurs non connectés
+  let sessionId = request.cookies.get('session_id')?.value
+  if (!sessionId) {
+    sessionId = uuidv4()
+    response.cookies.set('session_id', sessionId, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: 'lax',
+      maxAge: 60 * 60 * 24 * 30 // 30 jours
     })
   }
 
