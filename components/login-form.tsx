@@ -145,7 +145,7 @@ export function LoginForm({
           <div className="mt-6 text-center text-sm">
             Pas encore de compte ?{' '}
             <Link href="/auth/sign-up" className="underline underline-offset-4">
-              S'inscrire
+              S&apos;inscrire
             </Link>
           </div>
         </CardContent>
