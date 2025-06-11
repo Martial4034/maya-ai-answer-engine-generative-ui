@@ -56,7 +56,7 @@ export function Chat({
       window.dispatchEvent(new CustomEvent('chat-history-updated'))
     },
     onError: error => {
-      toast.error(`Error in chat: ${error.message}`)
+      toast.error(`Erreur dans le chat: ${error.message}`)
     },
     sendExtraMessageFields: false, // Disable extra message fields,
     experimental_throttle: 100
@@ -170,8 +170,8 @@ export function Chat({
         }
       })
     } catch (error) {
-      console.error('Failed to reload after message update:', error)
-      toast.error(`Failed to reload conversation: ${(error as Error).message}`)
+      console.error('Erreur lors du rechargement du chat:', error)
+      toast.error(`Erreur lors du rechargement du chat: ${(error as Error).message}`)
     }
   }
 

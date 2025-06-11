@@ -30,10 +30,10 @@ export function ReasoningSection({
           <Badge className="flex items-center gap-0.5" variant="secondary">
             <Lightbulb size={16} />
             {content.time === 0
-              ? 'Thinking...'
+              ? 'Réflexion en cours...'
               : content.time !== undefined && content.time > 0
-              ? `Thought for ${(content.time / 1000).toFixed(1)} seconds`
-              : 'Thoughts'}
+                ? `Réflexion pendant ${(content.time / 1000).toFixed(1)} secondes`
+                : 'Réflexions'}
           </Badge>
           {content.time === 0 ? (
             <Loader2
@@ -42,7 +42,7 @@ export function ReasoningSection({
             />
           ) : (
             <StatusIndicator icon={Check} iconClassName="text-green-500">
-              {`${content.reasoning.length.toLocaleString()} characters`}
+              {`${content.reasoning.length.toLocaleString()} caractères`}
             </StatusIndicator>
           )}
         </div>

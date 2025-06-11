@@ -14,9 +14,8 @@ import {
 } from '@/components/ui/dropdown-menu'
 import { createClient } from '@/lib/supabase/client'
 import { User } from '@supabase/supabase-js'
-import { Link2, LogOut, Palette } from 'lucide-react'
+import { LogOut, Palette } from 'lucide-react'
 import { useRouter } from 'next/navigation'
-import { ExternalLinkItems } from './external-link-items'
 import { ThemeMenuItems } from './theme-menu-items'
 import { Button } from './ui/button'
 
@@ -27,7 +26,7 @@ interface UserMenuProps {
 export default function UserMenu({ user }: UserMenuProps) {
   const router = useRouter()
   const userName =
-    user.user_metadata?.full_name || user.user_metadata?.name || 'User'
+    user.user_metadata?.full_name || user.user_metadata?.name || 'Académie'
   const avatarUrl =
     user.user_metadata?.avatar_url || user.user_metadata?.picture
 
@@ -55,8 +54,8 @@ export default function UserMenu({ user }: UserMenuProps) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost" className="relative h-8 w-8 rounded-full">
-          <Avatar className="h-8 w-8">
+        <Button variant="ghost" className="relative h-10 w-10 rounded-full">
+          <Avatar className="h-10 w-10">
             <AvatarImage src={avatarUrl} alt={userName} />
             <AvatarFallback>{getInitials(userName, user.email)}</AvatarFallback>
           </Avatar>
@@ -83,19 +82,11 @@ export default function UserMenu({ user }: UserMenuProps) {
             <ThemeMenuItems />
           </DropdownMenuSubContent>
         </DropdownMenuSub>
-        <DropdownMenuSub>
-          <DropdownMenuSubTrigger>
-            <Link2 className="mr-2 h-4 w-4" />
-            <span>Links</span>
-          </DropdownMenuSubTrigger>
-          <DropdownMenuSubContent>
-            <ExternalLinkItems />
-          </DropdownMenuSubContent>
-        </DropdownMenuSub>
+
         <DropdownMenuSeparator />
         <DropdownMenuItem onClick={handleLogout}>
           <LogOut className="mr-2 h-4 w-4" />
-          <span>Logout</span>
+          <span>Se déconnecter</span>
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

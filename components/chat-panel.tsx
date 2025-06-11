@@ -10,7 +10,6 @@ import Textarea from 'react-textarea-autosize'
 import { useArtifact } from './artifact/artifact-context'
 import { EmptyScreen } from './empty-screen'
 import { ModelSelector } from './model-selector'
-import { SearchModeToggle } from './search-mode-toggle'
 import { Button } from './ui/button'
 import { IconLogo } from './ui/icons'
 
@@ -45,7 +44,7 @@ export function ChatPanel({
   showScrollToBottomButton,
   scrollContainerRef
 }: ChatPanelProps) {
-  const [showEmptyScreen, setShowEmptyScreen] = useState(false)
+  const [showEmptyScreen, setShowEmptyScreen] = useState(true)
   const router = useRouter()
   const inputRef = useRef<HTMLTextAreaElement>(null)
   const isFirstRender = useRef(true)
@@ -116,9 +115,9 @@ export function ChatPanel({
     >
       {messages.length === 0 && (
         <div className="mb-10 flex flex-col items-center gap-4">
-          <IconLogo className="size-12 text-muted-foreground" />
+          <IconLogo className="size-24 text-muted-foreground" />
           <p className="text-center text-3xl font-semibold">
-            How can I help you today?
+            Comment puis-je vous aider aujourd&apos;hui ?
           </p>
         </div>
       )}
@@ -149,7 +148,7 @@ export function ChatPanel({
             tabIndex={0}
             onCompositionStart={handleCompositionStart}
             onCompositionEnd={handleCompositionEnd}
-            placeholder="Ask a question..."
+            placeholder="Posez votre question..."
             spellCheck={false}
             value={input}
             disabled={isLoading || isToolInvocationInProgress()}
@@ -182,7 +181,6 @@ export function ChatPanel({
           <div className="flex items-center justify-between p-3">
             <div className="flex items-center gap-2">
               <ModelSelector models={models || []} />
-              <SearchModeToggle />
             </div>
             <div className="flex items-center gap-2">
               {messages.length > 0 && (
@@ -221,7 +219,7 @@ export function ChatPanel({
                 target: { value: message }
               } as React.ChangeEvent<HTMLTextAreaElement>)
             }}
-            className={cn(showEmptyScreen ? 'visible' : 'invisible')}
+            className="visible"
           />
         )}
       </form>

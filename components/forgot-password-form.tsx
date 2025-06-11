@@ -1,7 +1,5 @@
 'use client'
 
-import { cn } from '@/lib/utils/index'
-import { createClient } from '@/lib/supabase/client'
 import { Button } from '@/components/ui/button'
 import {
   Card,
@@ -12,6 +10,8 @@ import {
 } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
+import { createClient } from '@/lib/supabase/client'
+import { cn } from '@/lib/utils/index'
 import Link from 'next/link'
 import { useState } from 'react'
 
@@ -46,33 +46,34 @@ export function ForgotPasswordForm({ className, ...props }: React.ComponentProps
       {success ? (
         <Card>
           <CardHeader>
-            <CardTitle className="text-2xl">Check Your Email</CardTitle>
-            <CardDescription>Password reset instructions sent</CardDescription>
+            <CardTitle className="text-2xl">Vérifiez votre email</CardTitle>
+            <CardDescription>Instructions de réinitialisation envoyées</CardDescription>
           </CardHeader>
           <CardContent>
             <p className="text-sm text-muted-foreground">
-              If you registered using your email and password, you will receive a password reset
-              email.
+              Si vous vous êtes inscrit avec votre email et mot de passe, vous recevrez un email de réinitialisation.
             </p>
           </CardContent>
         </Card>
       ) : (
         <Card>
           <CardHeader>
-            <CardTitle className="text-2xl">Reset Your Password</CardTitle>
+            <CardTitle className="text-2xl flex flex-col items-center justify-center gap-4">
+              Mot de passe oublié
+            </CardTitle>
             <CardDescription>
-              Type in your email and we&apos;ll send you a link to reset your password
+              Entrez votre email pour réinitialiser votre mot de passe
             </CardDescription>
           </CardHeader>
           <CardContent>
             <form onSubmit={handleForgotPassword}>
-              <div className="flex flex-col gap-6">
+              <div className="flex flex-col gap-4">
                 <div className="grid gap-2">
                   <Label htmlFor="email">Email</Label>
                   <Input
                     id="email"
                     type="email"
-                    placeholder="m@example.com"
+                    placeholder="vous@exemple.com"
                     required
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
@@ -80,19 +81,23 @@ export function ForgotPasswordForm({ className, ...props }: React.ComponentProps
                 </div>
                 {error && <p className="text-sm text-red-500">{error}</p>}
                 <Button type="submit" className="w-full" disabled={isLoading}>
-                  {isLoading ? 'Sending...' : 'Send reset email'}
+                  {isLoading ? 'Envoi en cours...' : 'Réinitialiser le mot de passe'}
                 </Button>
               </div>
-              <div className="mt-4 text-center text-sm">
-                Already have an account?{' '}
+              <div className="mt-6 text-center text-sm">
                 <Link href="/auth/login" className="underline underline-offset-4">
-                  Login
+                  Retour à la connexion
                 </Link>
               </div>
             </form>
           </CardContent>
         </Card>
       )}
+      <div className="text-center text-xs text-muted-foreground">
+        <Link href="/" className="hover:underline">
+          &larr; Retour à l&apos;accueil
+        </Link>
+      </div>
     </div>
   )
 }

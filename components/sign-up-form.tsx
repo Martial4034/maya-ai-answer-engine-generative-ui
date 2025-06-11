@@ -35,7 +35,7 @@ export function SignUpForm({
     setError(null)
 
     if (password !== repeatPassword) {
-      setError('Passwords do not match')
+      setError('Les mots de passe ne correspondent pas')
       setIsLoading(false)
       return
     }
@@ -66,10 +66,10 @@ export function SignUpForm({
         <CardHeader className="text-center">
           <CardTitle className="text-2xl flex flex-col items-center justify-center gap-4">
             <IconLogo className="size-12" />
-            Create an account
+            Créer un compte
           </CardTitle>
           <CardDescription>
-            Enter your details below to get started
+            Entrez vos informations pour commencer
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -80,7 +80,7 @@ export function SignUpForm({
                 <Input
                   id="email"
                   type="email"
-                  placeholder="you@example.com"
+                  placeholder="vous@exemple.com"
                   required
                   value={email}
                   onChange={e => setEmail(e.target.value)}
@@ -88,7 +88,7 @@ export function SignUpForm({
               </div>
               <div className="grid gap-2">
                 <div className="flex items-center">
-                  <Label htmlFor="password">Password</Label>
+                  <Label htmlFor="password">Mot de passe</Label>
                 </div>
                 <Input
                   id="password"
@@ -101,7 +101,7 @@ export function SignUpForm({
               </div>
               <div className="grid gap-2">
                 <div className="flex items-center">
-                  <Label htmlFor="repeat-password">Repeat Password</Label>
+                  <Label htmlFor="repeat-password">Confirmer le mot de passe</Label>
                 </div>
                 <Input
                   id="repeat-password"
@@ -114,13 +114,13 @@ export function SignUpForm({
               </div>
               {error && <p className="text-sm text-red-500">{error}</p>}
               <Button type="submit" className="w-full" disabled={isLoading}>
-                {isLoading ? 'Creating account...' : 'Sign Up'}
+                {isLoading ? 'Création du compte...' : 'S\'inscrire'}
               </Button>
             </div>
             <div className="mt-6 text-center text-sm">
-              Already have an account?{' '}
+              Vous avez déjà un compte ?{' '}
               <Link href="/auth/login" className="underline underline-offset-4">
-                Sign In
+                Se connecter
               </Link>
             </div>
           </form>
@@ -128,7 +128,7 @@ export function SignUpForm({
       </Card>
       <div className="text-center text-xs text-muted-foreground">
         <Link href="/" className="hover:underline">
-          &larr; Back to Home
+          &larr; Retour à l&apos;accueil
         </Link>
       </div>
     </div>

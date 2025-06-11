@@ -101,17 +101,17 @@ export function QuestionConfirmation({
   const updatedQuery = () => {
     // If skipped, show skipped message
     if (wasSkipped()) {
-      return 'Question skipped'
+      return 'Question ignorée'
     }
 
     const displayOptions = getDisplayedOptions()
     const displayInputText = getDisplayedInputText()
 
     const optionsText =
-      displayOptions.length > 0 ? `Selected: ${displayOptions.join(', ')}` : ''
+      displayOptions.length > 0 ? `Sélectionné : ${displayOptions.join(', ')}` : ''
 
     const inputTextDisplay =
-      displayInputText.trim() !== '' ? `Input: ${displayInputText}` : ''
+      displayInputText.trim() !== '' ? `Saisie : ${displayInputText}` : ''
 
     return [optionsText, inputTextDisplay].filter(Boolean).join(' | ')
   }
@@ -188,11 +188,11 @@ export function QuestionConfirmation({
           <div className="flex justify-end space-x-2">
             <Button type="button" variant="outline" onClick={handleSkip}>
               <SkipForward size={16} className="mr-1" />
-              Skip
+              Ignorer
             </Button>
             <Button type="submit" disabled={isButtonDisabled}>
               <ArrowRight size={16} className="mr-1" />
-              Send
+              Envoyer
             </Button>
           </div>
         </form>

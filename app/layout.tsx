@@ -16,12 +16,12 @@ const fontSans = FontSans({
   variable: '--font-sans'
 })
 
-const title = 'Morphic'
+const title = 'MAYA'
 const description =
-  'A fully open-source AI-powered answer engine with a generative UI.'
+  'MAYA est votre assistant IA pour répondre à vos questions et vous aider dans le développement de votre activité de thérapeute.'
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://morphic.sh'),
+  metadataBase: new URL('https://accelerateurdecabinet.com/ia/'),
   title,
   description,
   openGraph: {

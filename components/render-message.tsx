@@ -1,8 +1,7 @@
-import { ChatRequestOptions, JSONValue, Message, ToolInvocation } from 'ai'
+import { ChatRequestOptions, Message, ToolInvocation } from 'ai'
 import { useMemo } from 'react'
 import { AnswerSection } from './answer-section'
 import { ReasoningSection } from './reasoning-section'
-import RelatedQuestions from './related-questions'
 import { ToolSection } from './tool-section'
 import { UserMessage } from './user-message'
 
@@ -167,14 +166,6 @@ export function RenderMessage({
             return null
         }
       })}
-      {relatedQuestions && relatedQuestions.length > 0 && (
-        <RelatedQuestions
-          annotations={relatedQuestions as JSONValue[]}
-          onQuerySelect={onQuerySelect}
-          isOpen={getIsOpen(`${messageId}-related`)}
-          onOpenChange={open => onOpenChange(`${messageId}-related`, open)}
-        />
-      )}
     </>
   )
 }

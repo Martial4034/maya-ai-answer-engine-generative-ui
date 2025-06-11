@@ -33,7 +33,7 @@ export function MessageActions({
 
   async function handleCopy() {
     await navigator.clipboard.writeText(message)
-    toast.success('Message copied to clipboard')
+    toast.success('Message copié dans le presse-papiers')
   }
 
   return (

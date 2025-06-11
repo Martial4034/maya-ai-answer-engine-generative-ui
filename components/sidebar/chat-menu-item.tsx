@@ -53,13 +53,13 @@ const formatDateWithTime = (date: Date | string) => {
     parsedDate.getMonth() === now.getMonth() &&
     parsedDate.getFullYear() === now.getFullYear()
   ) {
-    return `Today, ${formatTime(parsedDate)}`
+    return `Aujourd'hui, ${formatTime(parsedDate)}`
   } else if (
     parsedDate.getDate() === yesterday.getDate() &&
     parsedDate.getMonth() === yesterday.getMonth() &&
     parsedDate.getFullYear() === yesterday.getFullYear()
   ) {
-    return `Yesterday, ${formatTime(parsedDate)}`
+    return `Hier, ${formatTime(parsedDate)}`
   } else {
     return parsedDate.toLocaleString('en-US', {
       year: 'numeric',
@@ -90,7 +90,7 @@ export function ChatMenuItem({ chat }: ChatMenuItemProps) {
           throw new Error(errorData.error || 'Failed to delete chat')
         }
 
-        toast.success('Chat deleted')
+        toast.success('Chat supprimé')
         setIsMenuOpen(false) // Close menu on success
         setDialogOpen(false) // Close dialog on success
 
@@ -100,8 +100,8 @@ export function ChatMenuItem({ chat }: ChatMenuItemProps) {
         }
         window.dispatchEvent(new CustomEvent('chat-history-updated'))
       } catch (error) {
-        console.error('Failed to delete chat:', error)
-        toast.error((error as Error).message || 'Failed to delete chat')
+        console.error('Erreur lors de la suppression du chat:', error)
+        toast.error((error as Error).message || 'Erreur lors de la suppression du chat')
         setIsMenuOpen(false) // Close menu on error
         setDialogOpen(false) // Close dialog on error
       }
@@ -135,7 +135,7 @@ export function ChatMenuItem({ chat }: ChatMenuItemProps) {
             ) : (
               <MoreHorizontal size={16} />
             )}
-            <span className="sr-only">Chat Actions</span>
+            <span className="sr-only">Actions du chat</span>
           </SidebarMenuAction>
         </DropdownMenuTrigger>
         <DropdownMenuContent side="right" align="start">
@@ -150,20 +150,19 @@ export function ChatMenuItem({ chat }: ChatMenuItemProps) {
                 }}
               >
                 <Trash2 size={14} />
-                Delete Chat
+                Supprimer le chat
               </DropdownMenuItem>
             </AlertDialogTrigger>
             <AlertDialogContent>
               <AlertDialogHeader>
-                <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+                <AlertDialogTitle>Êtes-vous sûr ?</AlertDialogTitle>
                 <AlertDialogDescription>
-                  This action cannot be undone. This will permanently delete
-                  this chat history.
+                  Cette action est irréversible. Elle supprimera définitivement votre historique et supprimera vos données de nos serveurs.
                 </AlertDialogDescription>
               </AlertDialogHeader>
               <AlertDialogFooter>
                 <AlertDialogCancel disabled={isPending}>
-                  Cancel
+                  Annuler
                 </AlertDialogCancel>
                 <AlertDialogAction
                   disabled={isPending}
@@ -175,7 +174,7 @@ export function ChatMenuItem({ chat }: ChatMenuItemProps) {
                       <Spinner />
                     </div>
                   ) : (
-                    'Delete'
+                    'Supprimer'
                   )}
                 </AlertDialogAction>
               </AlertDialogFooter>

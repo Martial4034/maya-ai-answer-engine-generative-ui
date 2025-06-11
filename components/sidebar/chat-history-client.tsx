@@ -40,8 +40,8 @@ export function ChatHistoryClient() {
       setChats(newChats)
       setNextOffset(newNextOffset)
     } catch (error) {
-      console.error('Failed to load initial chats:', error)
-      toast.error('Failed to load chat history.')
+      console.error('Erreur lors du chargement des chats:', error)
+      toast.error('Erreur lors du chargement de l\'historique.')
       setNextOffset(null)
     } finally {
       setIsLoading(false)
@@ -71,7 +71,7 @@ export function ChatHistoryClient() {
     try {
       const response = await fetch(`/api/chats?offset=${nextOffset}&limit=20`)
       if (!response.ok) {
-        throw new Error('Failed to fetch more chat history')
+        throw new Error('Erreur lors du chargement de l\'historique')
       }
       const { chats: newChats, nextOffset: newNextOffset } =
         (await response.json()) as ChatPageResponse
@@ -79,8 +79,8 @@ export function ChatHistoryClient() {
       setChats(prevChats => [...prevChats, ...newChats])
       setNextOffset(newNextOffset)
     } catch (error) {
-      console.error('Failed to load more chats:', error)
-      toast.error('Failed to load more chat history.')
+      console.error('Erreur lors du chargement des chats:', error)
+      toast.error('Erreur lors du chargement de l\'historique.')
       setNextOffset(null)
     } finally {
       setIsLoading(false)
@@ -115,14 +115,14 @@ export function ChatHistoryClient() {
     <div className="flex flex-col flex-1 h-full">
       <SidebarGroup>
         <div className="flex items-center justify-between w-full">
-          <SidebarGroupLabel className="p-0">History</SidebarGroupLabel>
+          <SidebarGroupLabel className="p-0">Historique</SidebarGroupLabel>
           <ClearHistoryAction empty={isHistoryEmpty} />
         </div>
       </SidebarGroup>
       <div className="flex-1 overflow-y-auto mb-2 relative">
         {isHistoryEmpty && !isPending ? (
           <div className="px-2 text-foreground/30 text-sm text-center py-4">
-            No search history
+            Aucun historique
           </div>
         ) : (
           <SidebarMenu>
