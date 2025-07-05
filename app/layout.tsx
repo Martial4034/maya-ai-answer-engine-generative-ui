@@ -6,7 +6,7 @@ import { SidebarProvider } from '@/components/ui/sidebar'
 import { Toaster } from '@/components/ui/sonner'
 import { createClient } from '@/lib/supabase/server'
 import { cn } from '@/lib/utils'
-import { Analytics } from '@vercel/analytics/next'
+import { Analytics } from "@vercel/analytics/next"
 import type { Metadata, Viewport } from 'next'
 import { Inter as FontSans } from 'next/font/google'
 import './globals.css'
@@ -84,8 +84,8 @@ export default async function RootLayout({
             </div>
           </SidebarProvider>
           <Toaster />
-          <Analytics />
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   )
