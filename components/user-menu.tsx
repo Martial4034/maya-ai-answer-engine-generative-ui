@@ -15,6 +15,7 @@ import {
 import { createClient } from '@/lib/supabase/client'
 import { User } from '@supabase/supabase-js'
 import { Laptop, LogOut, Moon, Palette, Sun } from 'lucide-react'
+import { useTheme } from 'next-themes'
 import { useRouter } from 'next/navigation'
 import { Button } from './ui/button'
 
@@ -24,6 +25,7 @@ interface UserMenuProps {
 
 export default function UserMenu({ user }: UserMenuProps) {
   const router = useRouter()
+  const { setTheme } = useTheme()
   const userName =
     user.user_metadata?.full_name || user.user_metadata?.name || 'Académie'
   const avatarUrl =
@@ -78,15 +80,15 @@ export default function UserMenu({ user }: UserMenuProps) {
             <span>Thème</span>
           </DropdownMenuSubTrigger>
           <DropdownMenuSubContent>
-            <DropdownMenuItem onClick={() => { import('next-themes').then(({ useTheme }) => useTheme().setTheme('light')) }}>
+            <DropdownMenuItem onClick={() => setTheme('light')}>
               <Sun className="mr-2 h-4 w-4" />
               <span>Clair</span>
             </DropdownMenuItem>
-            <DropdownMenuItem onClick={() => { import('next-themes').then(({ useTheme }) => useTheme().setTheme('dark')) }}>
+            <DropdownMenuItem onClick={() => setTheme('dark')}>
               <Moon className="mr-2 h-4 w-4" />
               <span>Sombre</span>
             </DropdownMenuItem>
-            <DropdownMenuItem onClick={() => { import('next-themes').then(({ useTheme }) => useTheme().setTheme('system')) }}>
+            <DropdownMenuItem onClick={() => setTheme('system')}>
               <Laptop className="mr-2 h-4 w-4" />
               <span>Système</span>
             </DropdownMenuItem>
